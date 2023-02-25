@@ -3,8 +3,6 @@ import React from "react";
 import { GET_CLIENTS } from "./clientQueries";
 import ClientRow from "./ClientRow";
 
-
-
 export default function Clients() {
   const { loading, error, data } = useQuery(GET_CLIENTS);
   if (loading) return <p>Loading</p>;
@@ -21,11 +19,9 @@ export default function Clients() {
             </tr>
           </thead>
           <tbody>
-            {
-                data.clients.map(client =>(
-                    <ClientRow key={client.id} client={client}/>
-                ))
-            }
+            {data.clients.map((client) => (
+              <ClientRow key={client.id} client={client} />
+            ))}
           </tbody>
         </table>
       )}
