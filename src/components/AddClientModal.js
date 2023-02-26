@@ -1,26 +1,30 @@
 import React from "react";
+import { FaUser } from "react-icons/fa";
 
 export default function AddClientModal() {
   return (
     <>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-secondary"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#addClientModal"
       >
-        Launch demo modal
+        <div className="d-flex align-items-center">
+          <FaUser className="icon me-2" />
+          <div>Add Client</div>
+        </div>
       </button>
       <div
         className="modal fade"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
+        id="addClientModal"
+        aria-labelledby="addClientModalLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+              <h1 className="modal-title fs-5" id="addClientModalLabel">
                 Modal title
               </h1>
               <button
