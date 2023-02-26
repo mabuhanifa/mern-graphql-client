@@ -5,7 +5,7 @@ export default function AddClientModal() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
+  const onSubmit = () => {};
   return (
     <>
       <button
@@ -39,7 +39,7 @@ export default function AddClientModal() {
               ></button>
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit={onSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Name</label>
                   <input
@@ -70,6 +70,13 @@ export default function AddClientModal() {
                     onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  data-bs-dismiss="modal"
+                >
+                  Submit
+                </button>
               </form>
             </div>
           </div>

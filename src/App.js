@@ -34,7 +34,6 @@ function App() {
       <ApolloProvider client={client}>
         <Header />
         <AddClientModal/>
-        <div className="container">hello</div>
         <Clients />
       </ApolloProvider>
     </div>
