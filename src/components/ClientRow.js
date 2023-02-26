@@ -13,6 +13,7 @@ export default function ClientRow({ client }) {
       const { clients } = cache.readQuery({
         query: GET_CLIENTS,
       });
+
       cache.writeQuery({
         query: GET_CLIENTS,
         data: {
