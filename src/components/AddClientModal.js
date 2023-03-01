@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { ADD_CLIENT } from "./mutation/clientMutations";
-import { GET_CLIENTS } from "./queries/clientQueries";
+import { ADD_CLIENT } from "../mutation/clientMutations";
+import { GET_CLIENTS } from "../queries/clientQueries";
 
 export default function AddClientModal() {
   const [name, setName] = useState("");

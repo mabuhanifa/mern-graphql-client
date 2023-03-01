@@ -1,4 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Router, Routes } from "react-router-dom";
 import "./App.css";
 import AddClientModal from "./components/AddClientModal";
 import Clients from "./components/Clients";
@@ -33,10 +34,16 @@ function App() {
   return (
     <div className="container">
       <ApolloProvider client={client}>
+        <Router>
+          <Routes>
+
+          </Routes>
+        
         <Header />
         <Projects />
         <AddClientModal />
         <Clients />
+        </Router>
       </ApolloProvider>
     </div>
   );
