@@ -1,11 +1,18 @@
+import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { FaList } from "react-icons/fa";
+import { GET_CLIENTS } from "../queries/clientQueries";
+import Spinner from "./Spinner";
 
 export default function AddProjectModal() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [clientId, setClientId] = useState("");
   const [status, setStatus] = useState("new");
+  const { loading, error, data } = useQuery(GET_CLIENTS);
+  if (loading) return <Spinner />;
+  if (error) return <p>Something went wrong</p>;
+
   const onSubmit = () => {};
   return (
     <>
@@ -61,14 +68,34 @@ export default function AddProjectModal() {
                   ></textarea>
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Phone</label>
-                  <input
-                    type="text"
-                    className="form-control"
+                  <label className="form-label">Status</label>
+                  <select
+                    name=""
+                    id="status"
+                    className="form-select"
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                  >
+                    <option value="new">Not Started</option>
+                    <option value="progress">In Progress</option>
+                    <option value="completed">Not Started</option>
+                  </select>
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Client</label>
+                  <select
                     id="clientId"
+                    className="form-select"
                     value={clientId}
                     onChange={(e) => setClientId(e.target.value)}
-                  />
+                  >
+                    <option value="">Select Client</option>
+                    {data?.clients?.map((client) => (
+                      <option key={client.id} value={client.id}>
+                        {client.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <button
                   className="btn btn-primary"
